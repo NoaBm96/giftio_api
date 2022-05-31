@@ -31,8 +31,10 @@ const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename); 
 
+//start the .env
 dotenv.config();
 
+//instance names app with express framework
 const app = express();
 
 // use() function is used to mount the specified middleware function(s) at the path which is being specified.
@@ -52,7 +54,7 @@ app.use(cors({ origin: true, credentials: true }));
 //Defining Port on which our page is load.
 const port = process.env.PORT || 5001;
 
-//Connection Parameters Passing in mongoose.connect() method.
+//Connection Parameters Passing in mongoose.connect() method. Required inorder to connect
 const CONNECTION_PARAMS = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -68,7 +70,7 @@ app.use("/paymentMethods", paymentMethodRouter);
 app.use("/static", express.static(path.join(__dirname, "uploads")));
 
 // The app.get() responds with “Hello to ToDo App API” for requests to the root URL (/) or route.
-//all your api code goes here
+//all the api code goes here
 app.get('/api', (req, res) => {
   res.json({
     message: 'This is the api endpoint'
