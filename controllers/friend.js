@@ -11,6 +11,7 @@ export const getFriends = async (req, res) => {
 };
 
 export const createFriend = async (req, res) => {
+  //from the front
   const friend = req.body;
   console.log(friend);
   const newFriend = new Friend({ ...friend, userId: req.userId });
